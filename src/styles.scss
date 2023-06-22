@@ -18,67 +18,67 @@
     font-weight: 500;
     src: url("../src/assets/fonts/DM_Sans/DMSans-Bold.ttf");
   }
-  p, label {
-    @apply text-base
+  p,
+  label {
+    @apply text-base;
   }
   h2 {
     @apply text-4xl font-bold;
   }
   h4 {
-    @apply text-base font-bold
+    @apply text-base font-bold;
   }
 }
 
 @layer components {
-  
   footer {
-    @apply fixed bottom-0 w-full bg-slate-100 py-2 px-4 text-center text-xs;
+    @apply fixed bottom-0 w-full bg-slate-100 px-4 py-2 text-center text-xs;
   }
   // Misc Buttons
   button.btn-round {
-    @apply select-none rounded bg-portal-blue py-2 px-4 font-bold text-white hover:bg-portal-blue;
+    @apply select-none rounded bg-portal-blue px-4 py-2 font-bold text-white hover:bg-portal-blue;
     &:focus {
       @apply outline-1 outline-portal-purple-100;
     }
     &.red {
-      @apply rounded bg-portal-red py-2 px-4 font-bold text-white hover:bg-portal-red;
+      @apply rounded bg-portal-red px-4 py-2 font-bold text-white hover:bg-portal-red;
     }
   }
 
-  // To Do List Styles 
+  // To Do List Styles
   button.btn-dropdown {
-    @apply py-1.5 text-base font-medium px-4 rounded-sm bg-portal-dark text-white w-64 text-left inline-flex items-center justify-between;
+    @apply inline-flex w-64 items-center justify-between rounded-sm bg-portal-dark px-4 py-1.5 text-left text-base font-medium text-white;
     &.active {
-      @apply text-base font-medium px-4 rounded-sm w-64 text-left inline-flex items-center justify-between text-white bg-portal-blue;
+      @apply inline-flex w-64 items-center justify-between rounded-sm bg-portal-blue px-4 text-left text-base font-medium text-white;
     }
   }
 
   span.dropdown-label {
-    @apply py-1.5 px-2 font-black border border-black rounded-sm border-l-0 ;
+    @apply rounded-sm border border-l-0 border-black px-2 py-1.5 font-black;
   }
-  
+
   span.list-item-primary {
-    @apply mb-3 w-36 rounded-sm bg-portal-dark py-1.5 px-4 text-left text-base font-medium text-white;
+    @apply mb-3 w-36 rounded-sm bg-portal-dark px-4 py-1.5 text-left text-base font-medium text-white;
   }
- 
+
   span.list-item-secondary {
-    @apply py-1.5 text-base px-4 rounded-sm bg-white text-portal-dark w-36 text-left mb-3 border border-black border-l-0;
+    @apply mb-3 w-36 rounded-sm border border-l-0 border-black bg-white px-4 py-1.5 text-left text-base text-portal-dark;
     &.warning {
-      @apply bg-portal-purple-100  border-portal-purple-100;
+      @apply border-portal-purple-100  bg-portal-purple-100;
     }
   }
-  // Modal Styles 
+  // Modal Styles
   .modal-container {
-    @apply fixed top-0 left-0 flex h-screen w-screen transform items-center justify-center bg-portal-purple bg-opacity-5 backdrop-blur-sm transition-transform duration-300;
+    @apply fixed left-0 top-0 flex h-screen w-screen transform items-center justify-center bg-portal-purple bg-opacity-5 backdrop-blur-sm transition-transform duration-300;
 
-    form {
-      @apply transform overflow-hidden rounded-lg px-8 py-6 shadow-lg transition duration-300 ease-in-out w-[50vw] h-fit;
+    form.modal-popup {
+      @apply h-fit w-[50vw] transform overflow-hidden rounded-lg px-8 py-6 shadow-lg transition duration-300 ease-in-out;
     }
   }
 
   // Patient Detail Styles
   .pill {
-    @apply flex items-center border border-solid px-4 py-2 rounded-lg max-h-7 mx-2;
+    @apply mx-2 flex max-h-7 items-center rounded-lg border border-solid px-4 py-2;
     &.pill-warning {
       @apply border-portal-purple-100 bg-portal-purple-100 text-portal-dark;
     }
@@ -93,17 +93,17 @@
     }
   }
   .btn {
-   &.nav-btn {
-      @apply border border-solid border-white bg-white shadow font-bold py-2 px-6 rounded-lg text-sm;
-     
+    &.nav-btn {
+      @apply rounded-lg border border-solid border-white bg-white px-6 py-2 text-sm font-bold shadow;
+
       &.active {
-        @apply bg-portal-blue text-white shadow border-portal-blue;
+        @apply border-portal-blue bg-portal-blue text-white shadow;
       }
     }
     &.tactic-btn {
-      @apply inline-flex items-center rounded-lg border border-solid border-white cursor-pointer;
+      @apply inline-flex cursor-pointer items-center rounded-lg border border-solid border-white;
       &.tactic-btn-sm {
-        @apply py-2 px-4 mr-2 shadow;
+        @apply mr-2 px-4 py-2 shadow;
       }
       &.tactic-btn-lg {
         @apply py-2 pl-2 pr-20 shadow;
@@ -111,17 +111,17 @@
     }
   }
   .chart-section {
-    @apply mt-4 rounded-2xl border border-white bg-white shadow py-6 px-9 pt-2;
+    @apply mt-4 rounded-2xl border border-white bg-white px-9 py-6 pt-2 shadow;
   }
 
   // Appointements
   .inverted-chart-section {
-    @apply flex border-0 border-solid border-portal-gray-50 border-opacity-50 bg-opacity-50 rounded-2xl bg-portal-gray-50;
+    @apply flex rounded-2xl border-0 border-solid border-portal-gray-50 border-opacity-50 bg-portal-gray-50 bg-opacity-50;
     .chart-row {
-      @apply flex justify-between items-center py-6 px-5 m-2 border border-solid border-white rounded-2xl bg-white;
+      @apply m-2 flex items-center justify-between rounded-2xl border border-solid border-white bg-white px-5 py-6;
     }
     .active-view {
-      @apply border border-solid border-portal-blue rounded-full bg-portal-blue;
+      @apply rounded-full border border-solid border-portal-blue bg-portal-blue;
       h4 {
         @apply text-white;
       }
@@ -131,57 +131,60 @@
   // Navigation Menu
   .active-nav-item {
     h4 {
-      @apply text-portal-purple-500 font-bold;
+      @apply font-bold text-portal-purple-500;
     }
   }
 
-  // Patient List 
-  .patient-list  {
+  // Patient List
+  .patient-list {
     tr:last-child td:first-child {
       border-top-left-radius: 1rem;
     }
   }
   .ngx-pagination {
-  padding-left: 0px !important;
-}
+    padding-left: 0px !important;
+  }
 
-.ngx-pagination .current,
-.btn-info {
-  @apply bg-portal-blue-300 border border-solid border-portal-blue-300 rounded-md #{!important};
-}
+  .ngx-pagination .current,
+  .btn-info {
+    @apply rounded-md border border-solid border-portal-blue-300 bg-portal-blue-300 #{!important};
+  }
 
-// Custom Paginator Styles
-.ngx-pagination  {
-  li {
-    @apply border border-solid border-portal-blue-300 rounded-md #{!important};
-    a {
+  // Custom Paginator Styles
+  .ngx-pagination {
+    li {
+      @apply rounded-md border border-solid border-portal-blue-300 #{!important};
+      a {
+        @apply text-portal-blue-300 #{!important};
+      }
+    }
+    .current:hover {
+      @apply rounded-md border border-solid border-portal-blue bg-portal-blue #{!important};
+    }
+    li.pagination-next,
+    li.pagination-previous,
+    .ngx-pagination a,
+    .ngx-pagination button {
+      @apply border-none text-portal-blue-300 #{!important};
+    }
+    li.ngx-pagination a:hover,
+    .ngx-pagination button:hover {
+      @apply bg-[#f8f9fd] #{!important};
+    }
+    li.pagination-next a {
       @apply text-portal-blue-300 #{!important};
     }
+    li.pagination-next a:hover,
+    li.pagination-previous a:hover {
+      @apply bg-[#f8f9fd] text-portal-blue #{!important};
+    }
+    li.pagination-previous.disabled {
+      @apply bg-[#f8f9fd] text-portal-gray-300 #{!important};
+    }
   }
-  .current:hover {
-    @apply bg-portal-blue border border-solid border-portal-blue rounded-md #{!important};
-  }
-  li.pagination-next, li.pagination-previous, .ngx-pagination a, .ngx-pagination button {
-    @apply border-none text-portal-blue-300 #{!important};
-  }
-  li.ngx-pagination a:hover, .ngx-pagination button:hover {
-    @apply bg-[#f8f9fd] #{!important}
-  }
-  li.pagination-next a {
-    @apply text-portal-blue-300 #{!important};
-  } 
-  li.pagination-next a:hover, li.pagination-previous a:hover {
-    @apply bg-[#f8f9fd] text-portal-blue #{!important};
-  }
-  li.pagination-previous.disabled {
-    @apply bg-[#f8f9fd] text-portal-gray-300 #{!important};
-  }
-}
 
-// Mini Calendar 
+  // Mini Calendar
   .selected-day {
-    @apply border border-solid rounded-full py-2 px-3 bg-portal-blue text-white;
+    @apply rounded-full border border-solid bg-portal-blue px-3 py-2 text-white;
   }
-
-
 }

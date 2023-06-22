@@ -1,12 +1,14 @@
-<div class="w-[50vw] max-h-[95vh] rounded-3xl bg-white p-6">
-  <div class="inline-flex w-full mb-3"> 
-    <h4 class="font-fold pb-3 text-lg flex-grow ">User Settings</h4>
-    <div (click)="autoFillData()" class="rounded-xl px-2 py-2 text-sm font-semibold text-portal-blue border border-portal-blue-300 cursor-pointer hover:text-portal-purple-500 hover:border-portal-purple-500">
+<div class="max-h-[95vh] w-[50vw] rounded-3xl bg-white p-6">
+  <div class="mb-3 inline-flex w-full">
+    <h4 class="font-fold flex-grow pb-3 text-lg">User Settings</h4>
+    <div
+      (click)="autoFillData()"
+      class="cursor-pointer rounded-xl border border-portal-blue-300 px-2 py-2 text-sm font-semibold text-portal-blue hover:border-portal-purple-500 hover:text-portal-purple-500"
+    >
       <p class="text-base font-bold">Autofill Patient Form (for demo)</p>
-     
     </div>
   </div>
- 
+
   <form [formGroup]="patientForm">
     <div
       class="rounded-3xl border-0 border-solid border-portal-gray-50 border-opacity-50 bg-portal-gray-50 bg-opacity-50 p-6"
@@ -200,7 +202,7 @@
           <div class="sm:col-span-3">
             <label for="isp" class="font-medium">Doctor Assigned</label>
             <div class="mt-2">
-                <select
+              <select
                 id="doctor-assigned"
                 name="doctor-assigned"
                 formControlName="doctorAssigned"
@@ -224,7 +226,7 @@
           <div class="sm:col-span-3">
             <label for="isp" class="font-medium">Conditions/Symptoms</label>
             <div class="mt-2">
-                <input
+              <input
                 type="text"
                 name="conditions"
                 formControlName="conditions"
@@ -239,14 +241,16 @@
                 "
                 class="mt-2 pl-2 text-sm text-portal-red-500"
               >
-                Conditons is a required field
+                Conditions is a required field
               </div>
             </div>
           </div>
-         
-          <label for="emc-name" class="font-medium sm:col-span-6">Emergency Contact</label>
+
+          <label for="emc-name" class="font-medium sm:col-span-6"
+            >Emergency Contact</label
+          >
           <div class="sm:col-span-3">
-              <label for="emc-name" class="font-medium">Name</label>
+            <label for="emc-name" class="font-medium">Name</label>
             <div class="mt-2">
               <input
                 type="text"
@@ -314,19 +318,25 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="mt-6 flex items-center justify-end gap-x-6">
-        <button (click)="onClose()" type="button" class="text-sm font-semibold leading-6">
-          Cancel
-        </button>
-        <button
-          type="submit"
-          [disabled]="!patientForm.dirty"
-          (click)="onSave()"
-          class="rounded-lg bg-portal-blue px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-portal-gray-300"
+        <div
+          class="flex justify-between rounded-3xl border border-white bg-white"
         >
-          Save
-        </button>
+          <button
+            (click)="onClose()"
+            type="button"
+            class="text-sm font-semibold leading-6"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            [disabled]="!patientForm.dirty"
+            (click)="onSave()"
+            class="rounded-lg bg-portal-blue px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-portal-gray-300"
+          >
+            Save
+          </button>
+        </div>
       </div>
     </div>
   </form>

@@ -31,15 +31,23 @@
 
 @media (min-width: 1025px) and (max-width: 1670px) {
   .parent {
-    grid-template-columns: repeat(9, 1fr);
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 0.8fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
   }
 
+  .div1 {
+    grid-area: 1 / 1 / 3 / 4;
+  }
   .div2 {
-    grid-area: 1 / 3 / 3 / 7;
+    grid-area: 1 / 4 / 3 / 9;
   }
-
   .div3 {
-    grid-area: 1 / 7 / 8 / 10;
+    grid-area: 3 / 4 / 5 / 9;
+  }
+  .div4 {
+    grid-area: 3 / 1 / 5 / 4;
   }
 }
-

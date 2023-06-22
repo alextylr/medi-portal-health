@@ -1,0 +1,19 @@
+ <svg
+        width="42"
+        height="40"
+        viewBox="0 0 42 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <ellipse
+          cx="20.6261"
+          cy="19.9074"
+          rx="20.5499"
+          ry="19.3723"
+          fill="#CECED5"
+        />
+        <path
+          d="M20.2623 12.0562L29.4383 27.0387H11.0863L20.2623 12.0562Z"
+          fill="#02080A"
+        />
+      </svg>

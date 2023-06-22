@@ -1,0 +1,35 @@
+// time picker default styles overrides 
+input::-webkit-datetime-edit {
+    font-size: 1.3rem;
+    text-align: center;
+    line-height: 2;
+    font-weight: 300;
+}
+
+input::-webkit-datetime-edit {
+    min-width: 179px;
+    height: 42px;
+    background-color: #1f1f1f;
+    /* min-width: 8rem; */
+    /* min-height: 2rem; */
+    color: #cddeff;
+    border: solid 1px #000;
+    border-radius: 6px;
+    padding: 0.4rem;
+    border-right-style: solid;
+}
+
+input::-webkit-datetime-edit-fields-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input[type="time" i]::-webkit-calendar-picker-indicator {
+    visibility: hidden;
+    display: none;
+}
+
+input:focus {
+    outline-color: #fff;
+}

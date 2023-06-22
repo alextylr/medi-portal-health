@@ -1,0 +1,114 @@
+{
+    "patients": [
+      {
+        "firstName": "Julia",
+        "lastName": "J.", 
+        "dateOfBirth": "10/01/1966",
+        "conditions": "Back Injury",
+        "doctorAssigned": "Dr. Sean Maguire",
+        "nextAppointment": "08/03/2023",
+        "id": 1
+      },
+      {
+        "firstName": "Phoebe",
+        "lastName": "B.",
+        "dateOfBirth": "11/07/1988",
+        "conditions": "Arthritis",
+        "doctorAssigned": "Dr. Sean Maguire",
+        "nextAppointment": null,
+        "id": 2
+      },
+      {
+        "firstName": "Lucy",
+        "lastName": "D.",
+        "dateOfBirth": "02/14/1976",
+        "conditions": "Asthma",
+        "doctorAssigned": "Dr. Sean Maguire",
+        "nextAppointment": "05/03/2023",
+        "id": 3
+      },
+      {
+        "firstName": "Taylor",
+        "lastName": "S.",
+        "dateOfBirth": "04/10/1984",
+        "conditions": "Sinus Infection",
+        "doctorAssigned": "Dr. Phil McGraw",
+        "nextAppointment": "08/03/2023",
+        "id": 4
+      },
+      {
+        "firstName": "Julia",
+        "lastName": "J.", 
+        "dateOfBirth": "10/01/1966",
+        "conditions": "Back Injury",
+        "doctorAssigned": "Dr. Sean Maguire",
+        "nextAppointment": "08/03/2023",
+        "id": 1
+      },
+      {
+        "firstName": "Phoebe",
+        "lastName": "B.",
+        "dateOfBirth": "11/07/1988",
+        "conditions": "Arthritis",
+        "doctorAssigned": "Dr. Sean Maguire",
+        "nextAppointment": null,
+        "id": 2
+      },
+      {
+        "firstName": "Lucy",
+        "lastName": "D.",
+        "dateOfBirth": "02/14/1976",
+        "conditions": "Asthma",
+        "doctorAssigned": "Dr. Sean Maguire",
+        "nextAppointment": "05/03/2023",
+        "id": 3
+      },
+      {
+        "firstName": "Taylor",
+        "lastName": "S.",
+        "dateOfBirth": "04/10/1984",
+        "conditions": "Sinus Infection",
+        "doctorAssigned": "Dr. Phil McGraw",
+        "nextAppointment": "08/03/2023",
+        "id": 4
+      },
+      {
+        "firstName": "Julia",
+        "lastName": "J.", 
+        "dateOfBirth": "10/01/1966",
+        "conditions": "Back Injury",
+        "doctorAssigned": "Dr. Sean Maguire",
+        "nextAppointment": "08/03/2023",
+        "id": 1
+      },
+      {
+        "firstName": "Phoebe",
+        "lastName": "B.",
+        "dateOfBirth": "11/07/1988",
+        "conditions": "Arthritis",
+        "doctorAssigned": "Dr. Sean Maguire",
+        "nextAppointment": null,
+        "id": 2
+      },
+      {
+        "firstName": "Lucy",
+        "lastName": "D.",
+        "dateOfBirth": "02/14/1976",
+        "conditions": "Asthma",
+        "doctorAssigned": "Dr. Sean Maguire",
+        "nextAppointment": "05/03/2023",
+        "id": 3
+      },
+      {
+        "firstName": "Taylor",
+        "lastName": "S.",
+        "dateOfBirth": "04/10/1984",
+        "conditions": "Sinus Infection",
+        "doctorAssigned": "Dr. Phil McGraw",
+        "nextAppointment": "08/03/2023",
+        "id": 4
+      }
+    ]
+  }
+    
+  

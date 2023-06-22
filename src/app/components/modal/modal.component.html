@@ -1,0 +1,251 @@
+<div id="app" *ngIf="displayModal" class="min-h-screen pb-12 pt-8 antialiased">
+  <!-- Modal container -->
+  <div *ngIf="!modalStyle" class="modal-container">
+    <div class="p-12">
+     <form  class="modal-body">
+        <!-- Modal header -->
+        <div class="flex justify-between">
+          <div class="space-y-1">
+            <h2>{{ modalTitle }}</h2>
+            <p>
+              <em> {{ modalBody }} </em>
+            </p>
+          </div>
+          <div>
+            <button
+              (click)="close()"
+              type="button"
+              class="flex flex-col items-center text-gray-400 transition duration-150 ease-in-out hover:bg-gray-300 hover:text-gray-500"
+            >
+              <svg
+                class="h-7 w-7"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+              <span
+                class="text-center text-xs font-semibold uppercase leading-3"
+              ></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid max-w-md grid-flow-row gap-3 sm:grid-cols-2 sm:gap-6">
+          <button
+            type="button"
+            (click)="close()"
+            class="rounded border border-gray-200 px-4 py-3 text-gray-600 transition duration-300 ease-in-out hover:border-white hover:bg-white hover:text-portal-dark"
+          >
+            Cancel
+          </button>
+          <button
+            (click)="confirm(); close()"
+            type="button"
+            class="rounded border border-transparent bg-portal-blue px-4 py-3 text-white transition duration-300 ease-in-out"
+          >
+            Confirm
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div *ngIf="modalStyle === 'reviewRx'" class="modal-container">
+    <!-- <div class="p-12"> -->
+    <form class="bg-portal-dark-900 text-white modal-body">
+      <!-- Modal header -->
+      <div class="flex justify-between">
+        <div class="">
+          <h4 class="text-2xl">Review Rx</h4>
+        </div>
+        <div>
+          <button
+            (click)="close()"
+            type="button"
+            class="pill pill-btn inline-flex p-4 transition duration-150 ease-in-out hover:border-white hover:bg-white hover:text-portal-dark"
+          >
+            <svg
+              class="max-h-6"
+              width="19"
+              height="21"
+              viewBox="0 0 19 21"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.40514 12.2575C0.119188 11.5664 0.119186 9.72214 1.40514 9.0311L16.2838 1.03565C17.5039 0.38002 18.9821 1.26377 18.9821 2.64883L18.9821 18.6397C18.9821 20.0248 17.5039 20.9085 16.2838 20.2529L1.40514 12.2575Z"
+                fill="#cddeff"
+              />
+            </svg>
+
+            <span class="ml-2 text-center font-bold">Go Back</span>
+          </button>
+        </div>
+      </div>
+      <hr class="my-5 border border-solid border-gray-300" />
+      <div class="flex">
+        <div class="flex flex-col">
+          <h4>Intervention Plan</h4>
+          <div class="flex flex-wrap">
+            <div
+              class="m-2 ml-0 flex flex-col rounded-lg border border-solid border-white px-8 py-2 pl-3"
+            >
+              <p class="text-sm">Rise Time</p>
+              <p class="text-sm font-bold">07:00</p>
+            </div>
+            <div class="flex">
+              <div
+                class="m-2 ml-0 flex flex-col rounded-lg border border-solid border-white px-8 py-2 pl-3"
+              >
+                <p class="text-sm">Bed Time</p>
+                <p class="text-sm font-bold">10:00</p>
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="m-2 ml-0 flex flex-col rounded-lg border border-solid border-white px-8 py-2 pl-3"
+              >
+                <p class="text-sm">Wake Reminder</p>
+                <p class="text-sm font-bold">ON</p>
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="m-2 ml-0 flex flex-col rounded-lg border border-solid border-white px-8 py-2 pl-3"
+              >
+                <p class="text-sm">Log Reminders</p>
+                <p class="text-sm font-bold">ON</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <h4>Selected Tactics</h4>
+          <div class="flex flex-wrap">
+            <div
+              class="border-portal-green-500 m-2 ml-0 flex rounded-lg border border-solid px-8 py-2 pl-3"
+            >
+              <img src="../assets/svg/tactic-rec-circle.svg" alt="" />
+
+              <div class="ml-2 flex flex-col">
+                <p class="text-sm font-bold">Sleep Intensity</p>
+                <p class="text-portal-green-500 text-sm font-bold">
+                  Recommended
+                </p>
+              </div>
+            </div>
+            <div
+              class="border-portal-green-500 m-2 ml-0 flex rounded-lg border border-solid px-8 py-2 pl-3"
+            >
+              <img src="../assets/svg/tactic-rec-circle.svg" alt="" />
+              <div class="ml-2 flex flex-col">
+                <p class="text-sm font-bold">Stress Reduction</p>
+                <p class="text-portal-green-500 text-sm font-bold">
+                  Recommended
+                </p>
+              </div>
+            </div>
+            <div
+              class="border-portal-green-500 m-2 ml-0 flex rounded-lg border border-solid px-8 py-2 pl-3"
+            >
+              <img src="../assets/svg/tactic-rec-circle.svg" alt="" />
+              <div class="ml-2 flex flex-col">
+                <p class="text-sm font-bold">Fatigue Countermeasures</p>
+                <p class="text-portal-green-500 text-sm font-bold">
+                  Recommended
+                </p>
+              </div>
+            </div>
+            <div class="flex">
+              <div
+                class="border-portal-blue-500 m-2 ml-0 flex rounded-lg border border-solid px-8 py-2 pl-3"
+              >
+                <img src="../assets/svg/tactic-selected-circle.svg" alt="" />
+                <p class="ml-2 text-sm font-bold">Thinking Efficiency</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 flex justify-end">
+        <button
+          class="pill pill-btn inline-flex p-4 hover:border-white hover:bg-white hover:text-portal-dark"
+          (click)="confirm(); close()"
+        >
+          <h4 class="mr-3">Confirm Rx & Send</h4>
+          <img
+            class="max-h-6"
+            src="../assets/svg/right-traingle-blue.svg"
+            alt=""
+          />
+        </button>
+      </div>
+    </form>
+    <!-- </div> -->
+  </div>
+  <div *ngIf="modalStyle === 'invalidForm'" class="modal-container">
+    <form class="bg-red-50 max-w-xs modal-body">
+      <div class="flex flex-col items-center">
+        <div class="">
+          <h4 class="text-2xl text-portal-red-500">Oops!</h4>
+        </div>
+        <div class="mt-6 text-center text-portal-red-500">
+          <p>Looks like there is an issue with your form.</p>
+          <p>Please check it and try agian!</p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end">
+        <button class="py-2 px-3 bg-portal-red-500 border border-portal-red-500 rounded-md hover:bg-portal-red-300 hover:border-portal-red-300" (click)="close()">
+          <h4 class="text-white">Close</h4>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="modalStyle === 'appointmentView'" class="modal-container">
+    <form class="bg-white max-w-xs modal-body">
+      <div class="flex flex-col items-center">
+        <div class="">
+          <h4 class="text-2xl">Appointent Details</h4>
+        </div>
+        <div class="mt-6">
+          <p class="text-lg">Time <span class="font-bold text-blue-700">7:00 am</span> </p>
+          <p class="text-lg">Type <span class="font-bold text-blue-700">Offline Consult</span></p>
+          <p class="text-lg">Patient <span class="font-bold text-blue-700">J. Jacklin</span></p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end">
+        <button class="py-2 px-3 bg-blue-700 border border-blue-700 rounded-md hover:bg-portal-blue-700 hover:border-portal-blue-700" (click)="close()">
+          <h4 class="text-white">Done</h4>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="modalStyle === 'addPatient'" class="modal-container">
+      <app-add-patient></app-add-patient>
+  </div>
+  <div *ngIf="modalStyle === 'successForm'" class="modal-container">
+    <form class="bg-white-50 max-w-xs modal-body">
+      <div class="flex flex-col items-center">
+        <div class="">
+          <h4 class="text-2xl text-portal-purple-300">Patient Added!</h4>
+        </div>
+        <div class="mt-6 text-center text-portal-purple-300">
+          <p>New patient was successfully added!</p>
+          
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end">
+        <button class="py-2 px-3 bg-portal-purple-300 border border-portal-purple-300 rounded-md hover:bg-portal-purple-300 hover:border-portal-purple-300" (click)="close()">
+          <h4 class="text-white">Close</h4>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

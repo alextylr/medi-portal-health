@@ -1,0 +1,95 @@
+<div class="flex flex-col overflow-y-scroll max-h-[95vh]">
+  <h4 class="text-portal-blue text-2xl mb-2">Patient List</h4>
+  <div class="flex justify-between border border-white bg-white rounded-xl my-2 p-4">
+    <p class="text-portal-gray-300">{{ patientList?.length }} Patients </p>
+    <button (click)="openModal()" class="text-base text-portal-blue font-bold"> <span class="border border-portal-blue px-[7px] py-[1px] mr-2 rounded-full bg-portal-blue text-white">+</span> Add Patient</button>
+  </div>
+  <div class="overflow-x-auto ">
+    <table
+      class="w-[70vw] border-collapse divide-y divide-portal-gray-100 overflow-hidden rounded-lg bg-white"
+    >
+      <thead>
+        <tr class="h-16">
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-base font-medium text-portal-gray-300"
+          >
+            Name
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-base font-medium text-portal-gray-300"
+          >
+            Date of Birth
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-base font-medium text-portal-gray-300"
+          >
+            Doctor Assigned
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-base font-medium text-portal-gray-300"
+          >
+            Conditions
+          </th>
+          <th
+            scope="col"
+            class="px-6 py-3 text-left text-base font-medium text-portal-gray-300"
+          >
+            Next Appointment
+          </th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-portal-gray-100 bg-white">
+        <tr [routerLink]="['/patient', patient.id]" *ngFor="let patient of patientList" class="h-20 cursor-pointer">
+          <td class="whitespace-nowrap px-6 py-4">
+            <div class="flex">
+              <div>
+                <div class="text-base font-medium text-gray-900">
+                  {{ patient.firstName }} {{ patient.lastName }}
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="whitespace-nowrap px-6 py-4 text-base text-gray-500">
+            {{ patient.dateOfBirth | date : "shortDate" }}
+          </td>
+          <td class="whitespace-nowrap px-6 py-4 text-base text-gray-500">
+            {{ patient.doctorAssigned }}
+          </td>
+          <td class="whitespace-nowrap px-6 py-4 text-base text-gray-500">
+            {{ patient.conditions }}
+          </td>
+          <td
+            *ngIf="patient.nextAppointment"
+            class="whitespace-nowrap px-6 py-4 text-base text-gray-500"
+          >
+            {{ patient.nextAppointment }}
+          </td>
+          <td
+            *ngIf="!patient.nextAppointment"
+            class="whitespace-nowrap px-6 py-4 text-base text-gray-500"
+          >
+            <div
+              class="w-fit rounded-full border border-solid border-portal-green-300 bg-portal-green-300 p-3"
+            >
+              <h4 class="text-portal-green">Schedule Next Appointment</h4>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- <div class="mt-4 flex justify-center">
+      <pagination-controls
+        (pageChange)="currentPage = $event"
+      ></pagination-controls>
+    </div> -->
+  </div>
+</div>
+
+<ng-container *ngIf="displayModal">
+  <app-modal modalStyle="addPatient"> </app-modal>
+</ng-container>

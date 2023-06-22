@@ -1,0 +1,149 @@
+<!-- patient information -->
+<div class="chart-section">
+  <div class="mt-4 py-6 pt-2">
+    <h4 class="mb-4">Patient Information</h4>
+    <div class="inline-flex justify-between w-full">
+      <div class="flex flex-col">
+        <p class="text-portal-gray-500">Date of Birth</p>
+        <h4 class="mb-2"> {{ patient.dateOfBirth }}</h4>
+        <p class="text-portal-gray-500">Gender</p>
+        <h4 class="mb-2"> {{ patient.gender }}</h4>
+      </div>
+      <div class="flex flex-col">
+        <p class="text-portal-gray-500">Address</p>
+        <h4 class="mb-2"> {{ patient.address }}</h4>
+        <p class="text-portal-gray-500">Phone Number  <span class="text-portal-gray-500 font-light">(Mobile)</span> </p>
+        <h4> {{patient.phoneNumber }} </h4>
+      </div>
+      <div class="flex flex-col">
+        <p class="text-portal-gray-500">Marital Status</p>
+        <h4 class="mb-2"> {{ patient.maritalStatus }}</h4>
+        <p class="text-portal-gray-500">Emergency Contact <span class="text-portal-gray-500 font-light">({{ patient.emergencyContactRelation }})</span></p>
+        <h4> {{ patient.emergencyContactName }}, {{ patient.emergencyContactPhoneNumber }} </h4>
+      </div>
+      <div class="flex flex-col">
+        <p class="text-portal-gray-500">Insurance</p>
+        <h4 class="mb-2"> {{ patient.insuranceProvider }}</h4>
+        <p class="text-portal-gray-500">Registered On</p>
+        <h4 *ngIf="patient.registeredOn"> {{patient.registeredOn }} </h4>
+        <h4 *ngIf="!patient.registeredOn"> {{ today | date : 'shortDate' }} </h4>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- appointments -->
+<div class="chart-section">
+  <div class="flex w-full items-baseline justify-between">
+    <div class="mb-3 flex border border-solid border-opacity-50 border-portal-gray-50 bg-opacity-50 rounded-full p-1 bg-portal-gray-50">
+      <button (click)="selectedView = 'upcoming'" [ngClass]="{'border border-solid border-portal-blue rounded-full bg-portal-blue text-white ' : selectedView === 'upcoming'}" class="py-2 px-4">
+        <h4 class="">Upcoming Appointments</h4>
+      </button>
+      <button (click)="selectedView = 'past'" [ngClass]="{'border border-solid border-portal-blue rounded-full bg-portal-blue text-white' : selectedView === 'past'}" class="py-2 px-4">
+        <h4 class="">Past Appointments</h4>
+      </button>
+      
+    </div>
+  </div>
+  <div class="inverted-chart-section">
+    <div class="flex flex-col p-2 w-full">
+      <ng-container *ngIf="selectedView === 'upcoming'">
+        <div *ngFor="let appointment of patient.upcomingAppointmentsList" (click)="openModal()" class="chart-row">
+          <div class="flex flex-col mr-2 w-full">
+            <p class="text-portal-gray-500">Date</p>
+            <h4> {{ appointment.appointmentDate | date:'longDate' }} </h4>
+          </div>
+          <div class="flex flex-col mr-2 w-full">
+            <p class="text-portal-gray-500">Symptoms</p>
+            <h4> {{ appointment.symptoms}} </h4>
+          </div>
+          <div class="flex flex-col mr-2 w-full">
+            <p class="text-portal-gray-500">Category</p>
+            <h4> {{ appointment.category}} </h4>
+          </div>
+          <div class="flex flex-col mr-2 w-full">
+            <p class="text-portal-gray-500">Doctor</p>
+            <h4> {{ appointment.physician}} </h4>
+          </div>
+          <div class="flex flex-col mr-2 w-fit">
+           <div class="pill pill-green rounded-full p-4">
+            <h4 class="text-portal-green">Confirmed</h4>
+           </div>
+          </div>
+    
+        </div>
+      </ng-container>
+        <ng-container *ngIf="selectedView === 'past'">
+          <div *ngFor="let appointment of patient.pastAppointmentsList" class="chart-row">
+            <div class="flex flex-col mr-2">
+              <p class="text-portal-gray-500">Date</p>
+              <h4> {{ appointment.appointmentDate | date:'longDate' }} </h4>
+            </div>
+            <div class="flex flex-col mr-2">
+              <p class="text-portal-gray-500">Symptoms</p>
+              <h4> {{ appointment.symptoms}} </h4>
+            </div>
+            <div class="flex flex-col mr-2">
+              <p class="text-portal-gray-500">Category</p>
+              <h4> {{ appointment.category}} </h4>
+            </div>
+            <div class="flex flex-col mr-2">
+              <p class="text-portal-gray-500">Doctor</p>
+              <h4> {{ appointment.physician}} </h4>
+            </div>
+            <div class="flex flex-col mr-2">
+             <div class="pill pill-green rounded-full p-4">
+              <h4 class="text-portal-green">Confirmed</h4>
+             </div>
+            </div>
+      
+          </div>
+        </ng-container>
+      
+    </div>
+  </div>
+</div>
+
+<!-- previous diagnoses -->
+<div class="chart-section mb-20">
+  <h4 class="pt-5 mb-3">Previous Diagnoses</h4>
+  
+  <div class="inline-flex w-full p-4 bg-portal-gray border-white rounded-xl">
+   
+    <div class="flex flex-grow">
+      <div
+        class="btn tactic-btn tactic-btn-sm bg-white"
+      >
+      <img class="max-h-8" src="../assets/svg/health.png" alt="" />
+        <div class="ml-4"> <p>Broken bone</p> </div>
+      </div>
+      <div
+        class="btn tactic-btn tactic-btn-sm  bg-white"
+      >
+      <img class="max-h-8" src="../assets/svg/kidneyy.png" alt="" />
+        <div class="ml-4"> <p>Pneumonia</p></div>
+      </div>
+      <div
+        class="btn tactic-btn tactic-btn-sm  bg-white"
+      >
+      <img class="max-h-8" src="../assets/svg/medicinee.png" alt="" />
+        <div class="ml-4"> <p>Vaccine Administered</p></div>
+      </div>
+      <div
+        class="btn tactic-btn tactic-btn-sm  bg-white"
+      >
+      <img class="max-h-8" src="../assets/svg/medical.png" alt="" />
+        <div class="ml-4"> <p>Viral gastroenteritis</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<ng-container *ngIf="displayModal">
+  <app-modal modalStyle="reviewRx" modalTitle="fgndgn" modalBody="this is just a demooo :)">
+  </app-modal>
+</ng-container>

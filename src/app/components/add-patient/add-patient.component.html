@@ -1,0 +1,333 @@
+<div class="w-[50vw] max-h-[95vh] rounded-3xl bg-white p-6">
+  <div class="inline-flex w-full mb-3"> 
+    <h4 class="font-fold pb-3 text-lg flex-grow ">User Settings</h4>
+    <div (click)="autoFillData()" class="rounded-xl px-2 py-2 text-sm font-semibold text-portal-blue border border-portal-blue-300 cursor-pointer hover:text-portal-purple-500 hover:border-portal-purple-500">
+      <p class="text-base font-bold">Autofill Patient Form (for demo)</p>
+     
+    </div>
+  </div>
+ 
+  <form [formGroup]="patientForm">
+    <div
+      class="rounded-3xl border-0 border-solid border-portal-gray-50 border-opacity-50 bg-portal-gray-50 bg-opacity-50 p-6"
+    >
+      <div class="border-portal-gray-300 pb-8">
+        <h2 class="text-lg font-semibold leading-7"></h2>
+
+        <div class="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+          <div class="sm:col-span-3">
+            <label for="first-name" class="font-medium">First name</label>
+            <div class="mt-2">
+              <input
+                type="text"
+                name="first-name"
+                formControlName="firstName"
+                id="first-name"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              />
+              <div
+                *ngIf="
+                  patientForm.get('firstName').invalid &&
+                  patientForm.get('firstName').dirty &&
+                  patientForm.get('firstName').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                First name is a required field
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <label for="last-name" class="font-medium">Last name</label>
+            <div class="mt-2">
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                formControlName="lastName"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              />
+              <div
+                *ngIf="
+                  patientForm.get('lastName').invalid &&
+                  patientForm.get('lastName').dirty &&
+                  patientForm.get('lastName').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                Last name is a required field
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <label for="gender" class="font-medium">Gender</label>
+            <div class="mt-2">
+              <select
+                id="gender"
+                name="gender"
+                formControlName="gender"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              >
+                <option>Female</option>
+                <option>Male</option>
+                <option>Non-binary</option>
+              </select>
+              <div
+                *ngIf="
+                  patientForm.get('gender').invalid &&
+                  patientForm.get('gender').dirty &&
+                  patientForm.get('gender').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                Gender is a required field
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <label for="dob" class="font-medium">Date of Birth</label>
+            <div class="mt-2">
+              <input
+                type="text"
+                name="dob"
+                formControlName="dateOfBirth"
+                id="dob"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              />
+              <div
+                *ngIf="
+                  patientForm.get('dateOfBirth').invalid &&
+                  patientForm.get('dateOfBirth').dirty &&
+                  patientForm.get('dateOfBirth').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                Date of Birth is a required field
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <label for="address" class="font-medium">Address</label>
+            <div class="mt-2">
+              <input
+                type="text"
+                name="address"
+                id="address"
+                formControlName="address"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              />
+              <div
+                *ngIf="
+                  patientForm.get('address').invalid &&
+                  patientForm.get('address').dirty &&
+                  patientForm.get('address').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                Address is a required field
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <label for="phone-number" class="font-medium">Phone Number</label>
+            <div class="mt-2">
+              <input
+                type="text"
+                name="phone-number"
+                formControlName="phoneNumber"
+                id="phone-number"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              />
+              <div
+                *ngIf="
+                  patientForm.get('phoneNumber').invalid &&
+                  patientForm.get('phoneNumber').dirty &&
+                  patientForm.get('phoneNumber').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                Phone Number is a required field
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <label for="last-name" class="font-medium">Marital Status</label>
+            <div class="mt-2">
+              <select
+                id="maritalStatus"
+                name="maritalStatus"
+                formControlName="maritalStatus"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              >
+                <option>Married</option>
+                <option>Single</option>
+                <option>Prefer not to answer</option>
+              </select>
+              <div
+                *ngIf="
+                  patientForm.get('maritalStatus').invalid &&
+                  patientForm.get('maritalStatus').dirty &&
+                  patientForm.get('maritalStatus').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                Marital Status is a required field
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <label for="isp" class="font-medium">Insurance Provider</label>
+            <div class="mt-2">
+              <input
+                type="text"
+                name="isp"
+                formControlName="insuranceProvider"
+                id="isp"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              />
+              <div
+                *ngIf="
+                  patientForm.get('insuranceProvider').invalid &&
+                  patientForm.get('insuranceProvider').dirty &&
+                  patientForm.get('insuranceProvider').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                Insurance Provider is a required field
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <label for="isp" class="font-medium">Doctor Assigned</label>
+            <div class="mt-2">
+                <select
+                id="doctor-assigned"
+                name="doctor-assigned"
+                formControlName="doctorAssigned"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              >
+                <option>Dr. Sean Maguire</option>
+                <option>Dr. Phil McGraw</option>
+              </select>
+              <div
+                *ngIf="
+                  patientForm.get('doctorAssigned').invalid &&
+                  patientForm.get('doctorAssigned').dirty &&
+                  patientForm.get('doctorAssigned').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                Doctor Assigned is a required field
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <label for="isp" class="font-medium">Conditions/Symptoms</label>
+            <div class="mt-2">
+                <input
+                type="text"
+                name="conditions"
+                formControlName="conditions"
+                id="conditions"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              />
+              <div
+                *ngIf="
+                  patientForm.get('conditions').invalid &&
+                  patientForm.get('conditions').dirty &&
+                  patientForm.get('conditions').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                Conditons is a required field
+              </div>
+            </div>
+          </div>
+         
+          <label for="emc-name" class="font-medium sm:col-span-6">Emergency Contact</label>
+          <div class="sm:col-span-3">
+              <label for="emc-name" class="font-medium">Name</label>
+            <div class="mt-2">
+              <input
+                type="text"
+                name="emc-name"
+                id="emc-name"
+                formControlName="emergencyContactName"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              />
+              <div
+                *ngIf="
+                  patientForm.get('emergencyContactName').invalid &&
+                  patientForm.get('emergencyContactName').dirty &&
+                  patientForm.get('emergencyContactName').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                Name is a required field
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <label for="emergencyContactRelation" class="font-medium"
+              >Relation</label
+            >
+            <div class="mt-2">
+              <input
+                type="text"
+                name="emergencyContactRelation"
+                formControlName="emergencyContactRelation"
+                id="emergencyContactRelation"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              />
+              <div
+                *ngIf="
+                  patientForm.get('emergencyContactRelation').invalid &&
+                  patientForm.get('emergencyContactRelation').dirty &&
+                  patientForm.get('emergencyContactRelation').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                Relation is a required field
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <label for="emc-phone" class="font-medium">Phone Number</label>
+            <div class="mt-2">
+              <input
+                type="text"
+                name="emc-phone"
+                id="emc-phone"
+                formControlName="emergencyContactPhoneNumber"
+                class="sm: block h-9 w-full rounded-lg border-0 py-1.5 shadow-sm focus:ring-2 focus:ring-inset focus:ring-[#4057c90f]"
+              />
+              <div
+                *ngIf="
+                  patientForm.get('emergencyContactPhoneNumber').invalid &&
+                  patientForm.get('emergencyContactPhoneNumber').dirty &&
+                  patientForm.get('emergencyContactPhoneNumber').touched
+                "
+                class="mt-2 pl-2 text-sm text-portal-red-500"
+              >
+                Phone Number is a required field
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6 flex items-center justify-end gap-x-6">
+        <button (click)="onClose()" type="button" class="text-sm font-semibold leading-6">
+          Cancel
+        </button>
+        <button
+          type="submit"
+          [disabled]="!patientForm.dirty"
+          (click)="onSave()"
+          class="rounded-lg bg-portal-blue px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-portal-gray-300"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

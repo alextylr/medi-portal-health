@@ -13,17 +13,18 @@ export class InterventionPlanComponent implements OnInit, OnChanges {
   patient: PatientDetail;
   selectedView: string = 'upcoming';
   today: Date;
-  
+
   @Input() patientId: any;
 
   constructor(
     private patientDetailService: MockPatientDetailService,
-    private modalService: ModalService,
+    private modalService: ModalService
   ) {}
 
   ngOnInit(): void {
-    this.today = new Date(); 
+    this.today = new Date();
 
+    this.scrollTop();
     this.patient = this.patientDetailService.getPatientById(this.patientId);
 
     this.modalService.watch().subscribe((res) => {
@@ -37,5 +38,10 @@ export class InterventionPlanComponent implements OnInit, OnChanges {
 
   openModal() {
     this.modalService.open();
+  }
+
+  scrollTop() {
+    const el = document.getElementById('chart');
+    el?.scrollIntoView();
   }
 }

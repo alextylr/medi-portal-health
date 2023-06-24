@@ -1,23 +1,19 @@
-<div class="p-4">
-  <div class="flex items-center w-[75vw]">
+<div id="patient-detail" class="p-4">
+  <div class="flex w-[75vw] items-center">
     <h2 class="mr-2">{{ patient.firstName }} {{ patient.lastName }}</h2>
     <img src="../assets/svg/flag-white.svg" alt="" />
     <div class="flex flex-grow">
-      <div><p class="text-sm font-bold"> </p></div>
+      <div><p class="text-sm font-bold"></p></div>
       <div>
-        <p class="text-sm font-bold"> </p>
+        <p class="text-sm font-bold"></p>
       </div>
       <div>
-        <p class="text-sm font-bold"> </p>
+        <p class="text-sm font-bold"></p>
       </div>
-    
     </div>
   </div>
-   <app-intervention-plan [patientId]="patientId"></app-intervention-plan>
+  <app-intervention-plan [patientId]="patientId"></app-intervention-plan>
 
   <!-- Prescription View  -->
-  <ng-container *ngIf="selectedView === 'prescription'">
-   
-  </ng-container>
-
+  <ng-container *ngIf="selectedView === 'prescription'"> </ng-container>
 </div>

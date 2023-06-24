@@ -13,19 +13,25 @@ export class PatientDetailComponent implements OnInit {
   patientId: any;
   selectedView: string = 'prescription';
 
-  
-  constructor(private route: ActivatedRoute, private patientDetailService: MockPatientDetailService, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private patientDetailService: MockPatientDetailService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-    this.patientId = +params.get('id')!;
-    this.patient = this.patientDetailService.getPatientById(this.patientId);
+      this.patientId = +params.get('id')!;
+      this.patient = this.patientDetailService.getPatientById(this.patientId);
     });
-
   }
 
   goBack() {
     this.router.navigateByUrl('/layout');
   }
-}
 
+  scrollTop() {
+    const el = document.getElementById('patient-detail');
+    el?.scrollIntoView();
+  }
+}

@@ -24,7 +24,6 @@ export class InterventionPlanComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.today = new Date();
 
-    this.scrollTop();
     this.patient = this.patientDetailService.getPatientById(this.patientId);
 
     this.modalService.watch().subscribe((res) => {
@@ -38,10 +37,5 @@ export class InterventionPlanComponent implements OnInit, OnChanges {
 
   openModal() {
     this.modalService.open();
-  }
-
-  scrollTop() {
-    const el = document.getElementById('chart');
-    el?.scrollIntoView();
   }
 }
